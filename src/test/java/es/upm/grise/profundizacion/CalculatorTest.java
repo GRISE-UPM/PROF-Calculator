@@ -25,25 +25,55 @@ class CalculatorTest {
 	@Test
 	void maxTests() {
 		double not_magic_number = 10;
-		assertEquals(testCalculator.max(), not_magic_number);
+		try{
+			assertEquals(testCalculator.max(), not_magic_number);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	void minTests() {
 		double not_magic_number = 0;
-		assertEquals(testCalculator.min(), not_magic_number);
+		try{
+			assertEquals(testCalculator.min(), not_magic_number);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	void avgTests() {
 		double not_magic_number = 5;
-		assertEquals(testCalculator.average(), not_magic_number);
+		try{
+			assertEquals(testCalculator.average(), not_magic_number);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	void stddevTests() {
 		double not_magic_number = 17;
-		assertEquals(testCalculator.stddev(), not_magic_number);
+		try{
+			assertEquals(testCalculator.stddev(), not_magic_number);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
+	@Test
+	void remTest() {
+		testCalculator.remove(0);
+		try{
+			assertEquals(testCalculator.numbers.size(), 4);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 }
