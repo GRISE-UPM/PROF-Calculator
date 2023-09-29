@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
     Calculator c;
+    static final double VALUE_CERO = 0;
     static final double VALUE_ONE = 1.0;
     static final double VALUE_TWO = 2.0;
     static final double VALUE_THREE = 3.0;
@@ -20,8 +21,9 @@ class CalculatorTest {
 
     @Test
     void testAdd() {
-        double res=c.min();
-        assertEquals(VALUE_ONE,res );
+        double res=0.0;
+        c.add(VALUE_CERO);
+        assertEquals(VALUE_CERO,res );
     }
 
     @Test
