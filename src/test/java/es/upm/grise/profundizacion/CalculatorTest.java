@@ -44,11 +44,12 @@ class CalculatorTest {
 	void stddevTests() {
 		double not_magic_number = 17;
 		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method");
+		
 	}
 
 	@Test
 	void remTest() {
-		double not_magic_number = 4;
+		double not_magic_number = (double) 4;
 		testCalculator.remove(0);
 		assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method");
 	}
