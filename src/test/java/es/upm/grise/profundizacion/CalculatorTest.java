@@ -25,32 +25,31 @@ class CalculatorTest {
 	@Test
 	void maxTests() {
 		double not_magic_number = 10;
-		double test_value = testCalculator.max();
-		assertEquals(test_value, not_magic_number);
+		assertEquals(testCalculator.max(), not_magic_number, "Testing max() method");
 	}
 
 	@Test
 	void minTests() {
 		double not_magic_number = 0;
-		assertEquals(testCalculator.min(), not_magic_number);
+		assertEquals(testCalculator.min(), not_magic_number, "Testing min() method");
 	}
 
 	@Test
 	void avgTests() {
 		double not_magic_number = 5;
-		assertEquals(testCalculator.average(), not_magic_number);
+		assertEquals(testCalculator.average(), not_magic_number, "Testing avg() method");
 	}
 
 	@Test
 	void stddevTests() {
 		double not_magic_number = 17;
-		assertEquals(testCalculator.stddev(), not_magic_number);
+		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method");
 	}
 
 	@Test
 	void remTest() {
 		double not_magic_number = 4;
 		testCalculator.remove(0);
-		assertEquals(testCalculator.numbers.size(), not_magic_number);
+		assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method");
 	}
 }
