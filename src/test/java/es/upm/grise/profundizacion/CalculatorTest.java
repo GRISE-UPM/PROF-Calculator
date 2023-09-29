@@ -25,20 +25,27 @@ class CalculatorTest {
 	@Test
 	void maxTests() {
 		double not_magic_number = 10;
+		//Fails when the minimum is not the highest number in the calculator
 		assertEquals(testCalculator.max(), not_magic_number, "Testing max() method");
 	}
 
 	@Test
 	void minTests() {
 		double not_magic_number = 0;
+		//Fails when the minimum is not the lowest number in the calculator
 		assertEquals(testCalculator.min(), not_magic_number, "Testing min() method");
 	}
 
 	@Test
 	void avgTests() {
 		double not_magic_number = 5;
+		//Fails when the average is off
 		assertEquals(testCalculator.average(), not_magic_number, "Testing avg() method");
 	}
+
+	/**
+	 * {@summary This method fails when the standard deviation is off}
+	 */
 
 	@Test
 	void stddevTests() {
