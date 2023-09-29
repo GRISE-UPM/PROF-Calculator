@@ -20,39 +20,39 @@ class CalculatorTest {
     }
 
     @Test
-    void testAdd() {
+    void addTest() {
         double res=0.0;
         c.add(VALUE_CERO);
         assertEquals(VALUE_CERO,res );
     }
 
     @Test
-    void testRemove() {
+    void removeTest() {
         c.remove(VALUE_ONE);
         double res=c.numbers.size();
         assertEquals(VALUE_TWO, res);
     }
 
     @Test
-    void testMax() {
+    void maxTest() {
         double res=c.max();
         assertEquals(VALUE_THREE,res);
     }
 
     @Test
-    void testMin() {
+    void minTest() {
         double res=c.min();
         assertEquals(VALUE_ONE, res);
     }
 
     @Test
-    void testAvg() {
+    void avgTest() {
         double res=c.average();
         assertEquals(VALUE_TWO,res );
     }
 
     @Test
-	void testStdDev() {
+	void stddevTest() {
 		double res=c.stddev();
 		double sol=1;
 		assertEquals(sol,res);
