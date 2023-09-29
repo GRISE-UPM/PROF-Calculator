@@ -22,35 +22,35 @@ class CalculatorTest {
 		testCalculator.add(5);
 	}
 
-	// @Test
-	// void maxTests() {
-	// 	double not_magic_number = 10;
-	// 	assertEquals(testCalculator.max(), not_magic_number, "Testing max() method");
-	// }
+	@Test
+	void maxTests() {
+		double not_magic_number = 10;
+		assertEquals(testCalculator.max(), not_magic_number, "Testing max() method");
+	}
 
-	// @Test
-	// void minTests() {
-	// 	double not_magic_number = 0;
-	// 	assertEquals(testCalculator.min(), not_magic_number, "Testing min() method");
-	// }
+	@Test
+	void minTests() {
+		double not_magic_number = 0;
+		assertEquals(testCalculator.min(), not_magic_number, "Testing min() method");
+	}
 
-	// @Test
-	// void avgTests() {
-	// 	double not_magic_number = 5;
-	// 	assertEquals(testCalculator.average(), not_magic_number, "Testing avg() method");
-	// }
+	@Test
+	void avgTests() {
+		double not_magic_number = 5;
+		assertEquals(testCalculator.average(), not_magic_number, "Testing avg() method");
+	}
 
 	@Test
 	void stddevTests() {
 		double not_magic_number = 17;
-		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method");
+		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method"); //Fails when the standard deviation is off
 		
 	}
 
-	// @Test
-	// void remTest() {
-	// 	double not_magic_number = 4;
-	// 	testCalculator.remove(0);
-	// 	assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method");
-	// }
+	@Test
+	void remTest() {
+		double not_magic_number = 4;
+		testCalculator.remove(0);
+		assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method"); //Fails when the '0' did not get removed successfully
+	}
 }
