@@ -43,7 +43,8 @@ class CalculatorTest {
 	@Test
 	void stddevTests() {
 		double not_magic_number = 17;
-		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method"); //Fails when the standard deviation is off
+		//Fails when the standard deviation is off
+		assertEquals(testCalculator.stddev(), not_magic_number, "Testing stddev() method");
 		
 	}
 
@@ -51,6 +52,7 @@ class CalculatorTest {
 	void remTest() {
 		double not_magic_number = 4;
 		testCalculator.remove(0);
-		assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method"); //Fails when the '0' did not get removed successfully
+		//Fails when the '0' did not get removed successfully
+		assertEquals(testCalculator.numbers.size(), not_magic_number, "Testing remove() method");
 	}
 }
