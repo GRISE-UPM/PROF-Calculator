@@ -25,7 +25,8 @@ class CalculatorTest {
 	@Test
 	void maxTests() {
 		double not_magic_number = 10;
-		assertEquals(testCalculator.max(), not_magic_number);
+		double test_value = testCalculator.max();
+		assertEquals(test_value, not_magic_number);
 	}
 
 	@Test
