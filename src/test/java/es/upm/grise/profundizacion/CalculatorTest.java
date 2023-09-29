@@ -48,7 +48,8 @@ class CalculatorTest {
 
 	@Test
 	void remTest() {
+		double not_magic_number = 4;
 		testCalculator.remove(0);
-		assertEquals(testCalculator.numbers.size(), 4);
+		assertEquals(testCalculator.numbers.size(), not_magic_number);
 	}
 }
