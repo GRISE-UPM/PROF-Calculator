@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class CalculatorTest {
 
 	@Nested
-	class basicOperationTests{
+	class BasicOperationTests{
 		Calculator testCalculator;
 		@BeforeEach
 		void makeCalcu(){
