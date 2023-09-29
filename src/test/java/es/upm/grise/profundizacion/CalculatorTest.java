@@ -13,54 +13,46 @@ class CalculatorTest {
     @BeforeEach
     void setUp() {
         c = new Calculator();
+        c.add(VALUE_ONE);
+        c.add(VALUE_THREE);
+        c.add(VALUE_TWO);
     }
 
     @Test
     void testAdd() {
-        c.add(VALUE_ONE);
         double res=c.min();
         assertEquals(VALUE_ONE,res );
     }
 
     @Test
     void testRemove() {
-        c.add(VALUE_ONE);
-        c.add(VALUE_THREE);
         c.remove(VALUE_ONE);
         double res=c.min();
-        assertEquals(VALUE_THREE, res);
+        assertEquals(VALUE_TWO, res);
     }
 
     @Test
     void testMax() {
-        c.add(VALUE_ONE);
-        c.add(VALUE_THREE);
         double res=c.max();
         assertEquals(VALUE_THREE,res);
     }
 
     @Test
     void testMin() {
-        c.add(VALUE_ONE);
-        c.add(VALUE_THREE);
         double res=c.min();
         assertEquals(VALUE_ONE, res);
     }
 
     @Test
     void testAvg() {
-        c.add(VALUE_ONE);
-        c.add(VALUE_THREE);
         double res=c.average();
         assertEquals(VALUE_TWO,res );
     }
 
     @Test
 	void testStdDev() {
-		c.add(VALUE_ONE);
-		c.add(VALUE_TWO);
 		double res=c.stddev();
-		double sol=0.5;
+		double sol=1;
 		assertEquals(sol,res);
 	}
 }
