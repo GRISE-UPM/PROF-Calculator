@@ -27,7 +27,7 @@ class CalculatorTest {
     @Test
     void testRemove() {
         c.remove(VALUE_ONE);
-        double res=c.min();
+        double res=c.numbers.size();
         assertEquals(VALUE_TWO, res);
     }
 
