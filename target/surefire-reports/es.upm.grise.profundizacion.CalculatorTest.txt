@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: es.upm.grise.profundizacion.CalculatorTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in es.upm.grise.profundizacion.CalculatorTest
+stddev_return_1  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1.0> but was: <0.6666666666666666>
+	at es.upm.grise.profundizacion.CalculatorTest.stddev_return_1(CalculatorTest.java:57)
+
