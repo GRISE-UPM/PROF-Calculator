@@ -7,6 +7,10 @@ public class Calculator {
 
 	public Vector <Double> numbers;
 	
+	public Calculator() {
+		numbers = new Vector<>();
+	}
+	
 	// Public methods
 	//
 	public void add(double d) {
@@ -14,7 +18,10 @@ public class Calculator {
 	}
 	
 	public void remove(double number) {
-		numbers.remove(numbers.lastIndexOf(number));
+		int idx = numbers.lastIndexOf(number);
+		if(idx!=-1) {
+			numbers.remove(idx);	
+		}
 	}
 	
 	public double max() {
@@ -42,7 +49,7 @@ public class Calculator {
 	}
 	
 	public double stddev() {
-		return sum_respect_average() / (count() - 1);
+		return Math.sqrt(sum_respect_average() / (count() - 1));
 	}
 	
 	// Private methods
