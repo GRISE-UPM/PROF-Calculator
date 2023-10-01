@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,10 +18,6 @@ class CalculatorTest {
 	@BeforeAll
 	static void prepareCalc() {
 		calculator = new Calculator();
-	}
-
-	@BeforeEach
-	void setCalc() {
 		calculator.add(2);
 		calculator.add(3);
 		calculator.add(4);
@@ -28,14 +25,6 @@ class CalculatorTest {
 		calculator.add(6);
 	}
 
-	@AfterEach
-	void resetCalc() {
-		calculator.remove(2);
-		calculator.remove(3);
-		calculator.remove(4);
-		calculator.remove(5);
-		calculator.remove(6);
-	}
 
 	@Test
 	void testMax() {
