@@ -7,8 +7,12 @@ public class Calculator {
 
 	public Vector <Double> numbers;
 	
-	// Public methods
-	//
+	// Inicializar el vector de numeros
+	public Calculator() {
+		numbers = new Vector<Double>();
+	}
+	
+	
 	public void add(double d) {
 		numbers.add(d);
 	}
