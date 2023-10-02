@@ -5,10 +5,19 @@ import java.lang.Double;
 
 public class Calculator {
 
-	public Vector <Double> numbers;
+	private Vector <Double> numbers;
 	
 	// Public methods
 	//
+
+	public Calculator(){
+		this.numbers = new Vector<Double>();
+	}
+
+	public Vector <Double> getNumbers(){
+		return this.numbers;
+	}
+
 	public void add(double d) {
 		numbers.add(d);
 	}
