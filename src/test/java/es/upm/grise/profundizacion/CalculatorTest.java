@@ -25,25 +25,59 @@ class CalculatorTest {
 		calculator.add(6);
 	}
 
+	@Test
+	void testAdd() {
+		Calculator testAddCalc = new Calculator();
+		int expectedSize = 2;
+		Double testNumber1 = 5.0;
+		Double testNumber2 = 7.0;
+		testAddCalc.add(testNumber1);
+		testAddCalc.add(testNumber2);
+		assertEquals(expectedSize, testAddCalc.numbers.size(),
+				"Tamaño de la calulcadora esperado tras añadir elementos al vector");
+	}
+
+	@Test
+	void testRemove() {
+		Calculator testRemoveCalc = new Calculator();
+		int expectedSize = 2;
+		Double testNumber1 = 5.0;
+		Double testNumber2 = 7.0;
+		testRemoveCalc.add(testNumber1);
+		testRemoveCalc.add(testNumber2);
+		System.out.println(calculator.numbers.size());
+		assertEquals(expectedSize, testRemoveCalc.numbers.size(), "Tamaño esperado despues de añadir los elementos");
+		expectedSize = 1;
+		testRemoveCalc.remove(7.0);
+		assertEquals(expectedSize, testRemoveCalc.numbers.size(),
+				"Tamaño de la calculadores esperado tras eliminar un elemento del vector");
+
+	}
 
 	@Test
 	void testMax() {
-		assertEquals(6, calculator.max(), "Maximo entre los números guardadoes en la calculadora [2,6] es 3");
+		Double expectedMax = 6.0;
+		assertEquals(expectedMax, calculator.max(), "Maximo entre los números guardadoes en la calculadora [2,6] es 3");
 	}
 
 	@Test
 	void testMin() {
-		assertEquals(2, calculator.min(), "Minimo entre entre los números guardadoes en la calculadora [2,6] es 2");
+		Double expectedMin = 2.0;
+		assertEquals(expectedMin, calculator.min(),
+				"Minimo entre entre los números guardadoes en la calculadora [2,6] es 2");
 	}
 
 	@Test
 	void testAverage() {
-		assertEquals(4, calculator.average(), "La media entre los números guardadoes en la calculadora [2,6] es 2.5");
+		Double expectedAverage = 4.0;
+		assertEquals(expectedAverage, calculator.average(),
+				"La media entre los números guardadoes en la calculadora [2,6] es 2.5");
 	}
 
 	@Test
 	void testStdDev() {
-		assertEquals(2.5, calculator.stddev(),
+		Double expectedStdDev = 2.5;
+		assertEquals(expectedStdDev, calculator.stddev(),
 				"La desviacion estandar entre los números guardadoes en la calculadora [2,6] es 0.5");
 	}
 
