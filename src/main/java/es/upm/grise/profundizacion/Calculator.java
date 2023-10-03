@@ -7,6 +7,11 @@ public class Calculator {
 
 	public Vector <Double> numbers;
 	
+	// Añadido constructor para inicializar la variable numbers
+	public Calculator() {
+		numbers = new Vector<>();
+	}
+	
 	// Public methods
 	//
 	public void add(double d) {
