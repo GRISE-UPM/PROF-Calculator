@@ -7,6 +7,14 @@ public class Calculator {
 
 	public Vector <Double> numbers;
 	
+	public Calculator() {
+		numbers = new Vector<Double>();
+	}
+	
+	public Vector<Double> debugGetNumbers() {
+		return numbers;
+	}
+	
 	// Public methods
 	//
 	public void add(double d) {
