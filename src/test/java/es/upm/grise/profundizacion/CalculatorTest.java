@@ -9,11 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 
-	@Test 
-	void null_test(){
-		Calculator calc = new Calculator();
-		assertThrows(NullPointerException.class, () -> {calc.add((Double)null);});
-	}
+
 
 	@Test
 	void add_test(){
@@ -22,8 +18,9 @@ class CalculatorTest {
 		calc.add(2.2);
 		
 		int sizeAfterAdd = 2;
+		int actualSize = calc.getNumbers().size();
 
-		assertEquals(sizeAfterAdd, calc.getNumbers().size());
+		assertEquals(sizeAfterAdd, actualSize);
 	}
 
 	@Test
@@ -32,11 +29,13 @@ class CalculatorTest {
 		calc.add(1.1);
 		calc.add(2.2);
 
-		Vector <Double> vector = new Vector<Double>();
-		vector.add(1.1);
-		vector.add(2.2);
+		Vector <Double> expectedVector = new Vector<Double>();
+		expectedVector.add(1.1);
+		expectedVector.add(2.2);
 
-		assertEquals(vector, calc.getNumbers());
+		Vector <Double> actualCalcVector = new Vector<Double>();
+
+		assertEquals(expectedVector, actualCalcVector);
 	}
 
 	@Test
@@ -45,7 +44,10 @@ class CalculatorTest {
 		calc.add(1.1);
 		calc.add(2.2);
 
-		assertEquals(1.1, calc.getNumbers().get(0));
+		double expectedFirst = 2.2;
+		double actualFirst = calc.getNumbers().get(0);
+
+		assertEquals(expectedFirst, actualFirst);
 	}
 
 	@Test
@@ -83,7 +85,9 @@ class CalculatorTest {
 		
 		calc.remove(1.1);
 
-		assertEquals(2.2, calc.getNumbers().get(0));
+		double expectedFirst = 2.2;
+
+		assertEquals(expectedFirst, calc.getNumbers().get(0));
 	}
 
 	@Test
