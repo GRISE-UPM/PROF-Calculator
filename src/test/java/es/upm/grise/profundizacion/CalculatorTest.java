@@ -20,35 +20,22 @@ class CalculatorTest {
 		int sizeAfterAdd = 2;
 		int actualSize = calc.getNumbers().size();
 
-		assertEquals(sizeAfterAdd, actualSize);
-	}
-
-	@Test
-	void add_test_2(){
-		Calculator calc = new Calculator();
-		calc.add(1.1);
-		calc.add(2.2);
+		assertEquals(sizeAfterAdd, actualSize, "El tamaño del vector tras añadir valores es incorrecto");
 
 		Vector <Double> expectedVector = new Vector<Double>();
 		expectedVector.add(1.1);
 		expectedVector.add(2.2);
 
-		Vector <Double> actualCalcVector = new Vector<Double>();
+		Vector <Double> actualCalcVector = calc.getNumbers();
 
-		assertEquals(expectedVector, actualCalcVector);
-	}
+		assertEquals(expectedVector, actualCalcVector, "El vector de la calculadora tras añadir valores es incorrecto");
 
-	@Test
-	void add_test_3(){
-		Calculator calc =  new Calculator();
-		calc.add(1.1);
-		calc.add(2.2);
-
-		double expectedFirst = 2.2;
+		double expectedFirst = 1.1;
 		double actualFirst = calc.getNumbers().get(0);
 
-		assertEquals(expectedFirst, actualFirst);
+		assertEquals(expectedFirst, actualFirst, "El primer valor del vector de la calculadora tras añadir varios valores es incorrecto");
 	}
+
 
 	@Test
 	void remove_test(){
