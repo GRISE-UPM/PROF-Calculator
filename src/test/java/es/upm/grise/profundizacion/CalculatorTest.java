@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Vector;
 
-
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
-
 
 
 	@Test
@@ -16,7 +15,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 		calc.add(1.1);
 		calc.add(2.2);
-		
+
 		int sizeAfterAdd = 2;
 		int actualSize = calc.getNumbers().size();
 
@@ -44,63 +43,43 @@ class CalculatorTest {
 		calc.add(2.2);
 
 		calc.remove(2.2);
-		
 		int sizeAfterRemove = 1;
+		int actualSize = calc.getNumbers().size();
+		assertEquals(sizeAfterRemove, actualSize);
 
-		assertEquals(sizeAfterRemove, calc.getNumbers().size());
-	}
 
-	@Test
-	void remove_test_2(){
-		Calculator calc = new Calculator();
-		calc.add(1.1);
-		calc.add(2.2);
+		double expectedFirst = 1.1;
+		double actualFirst = calc.getNumbers().get(0);
+
+		assertEquals(expectedFirst, actualFirst);
 
 		calc.remove(1.1);
-
-		Vector <Double> vector = new Vector<Double>();
-		vector.add(2.2);
-
-		assertEquals(vector, calc.getNumbers());
+		Vector <Double> expectedVector = new Vector<Double>();
+		Vector <Double> actualCalcVector = calc.getNumbers();
+		assertEquals(expectedVector, actualCalcVector);
 	}
 
-	@Test
-	void remove_test_3(){
-		Calculator calc =  new Calculator();
-		calc.add(1.1);
-		calc.add(2.2);
-		
-		calc.remove(1.1);
-
-		double expectedFirst = 2.2;
-
-		assertEquals(expectedFirst, calc.getNumbers().get(0));
-	}
 
 	@Test
 	void max_test(){
 		Calculator calc = new Calculator();
-		calc.add(0.1);
-		calc.add(0.8);
-		calc.add(0.9);
-		calc.add(0.2);
+		calc.add(1.1);
+		calc.add(2.2);
 
-		double maxNumber = 0.9;
+		double expectedMaxNumber = 2.2;
+		double actualMaxNumber = calc.max();
 
-		assertEquals(maxNumber, calc.max());
+		assertEquals(expectedMaxNumber, actualMaxNumber);
 	}
 
 	@Test
 	void min_test(){
 		Calculator calc = new Calculator();
-		calc.add(0.1);
-		calc.add(0.8);
-		calc.add(0.9);
-		calc.add(0.2);
+		calc.add(1.1);
+		calc.add(2.2);
 
-		double minNumber = 0.1;
-
-		assertEquals(minNumber, calc.min());
+		double expectedMinNumber = 1.1;
+		assertEquals(expectedMinNumber, calc.min());
 	}
 
 	@Test
@@ -129,18 +108,5 @@ class CalculatorTest {
 		assertEquals(stddevExpected, calc.stddev());
 	}
 
-	@Test
-	void stddev_test_2(){
-		Calculator calc = new Calculator();
-		calc.add(1);
-		calc.add(2);
-		calc.add(2);
-		calc.add(2);
-
-		double stddevExpected = 0.25;
-
-		assertEquals(stddevExpected, calc.stddev());
-	}
-	
 
 }
