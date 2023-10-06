@@ -16,7 +16,7 @@ class CalculatorTest {
 		calculadora.numbers= new Vector<Double>();
 	}
 	  @Test
-	  void testRemove0() {
+	  void Remove0() {
 	  	calculadora.add(1);
 	  	calculadora.add(2);
 	  	calculadora.add(3);
@@ -24,7 +24,7 @@ class CalculatorTest {
 	  	assertArrayEquals(new Double[] {1.0, 2.0, 3.0}, calculadora.numbers.toArray());
 	  }
 	@Test
-	void testRemove1() {
+	void Remove1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -33,7 +33,7 @@ class CalculatorTest {
 		assertArrayEquals(new Double[] {1.0, 2.0, 3.0}, calculadora.numbers.toArray());
 	}
 	@Test
-	void testRemove2() {
+	void Remove2() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.remove(1);
@@ -42,7 +42,7 @@ class CalculatorTest {
 	}
 
 	@Test
-	void testRemove3() {
+	void Remove3() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(1);
@@ -50,7 +50,7 @@ class CalculatorTest {
 		assertArrayEquals(new Double[] {1.0, 2.0}, calculadora.numbers.toArray());
 	}
 	@Test
-	void testAdd1() {
+	void Add1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -58,7 +58,7 @@ class CalculatorTest {
 		assertArrayEquals(new Double[] {1.0,2.0,3.0,4.0},calculadora.numbers.toArray());
 	}
 	@Test
-	void testAdd2() {
+	void Add2() {
 		calculadora.add(0);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -66,7 +66,7 @@ class CalculatorTest {
 		assertArrayEquals(new Double[] {0.0,2.0,3.0,4.0},calculadora.numbers.toArray());
 	}
 	@Test
-	void testAdd3() {
+	void Add3() {
 		calculadora.add(1);
 		calculadora.add(1);
 		calculadora.add(3);
@@ -74,7 +74,7 @@ class CalculatorTest {
 		assertArrayEquals(new Double[] {1.0,1.0,3.0,4.0},calculadora.numbers.toArray());
 	}
 	@Test
-	void testMax1() {
+	void Max1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -82,7 +82,7 @@ class CalculatorTest {
 		assert calculadora.max()==4;
 	}
 	@Test
-	void testMax2() {
+	void Max2() {
 		calculadora.add(0);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -90,7 +90,7 @@ class CalculatorTest {
 		assert calculadora.max()==4;
 	}
 	@Test
-	void testMax3() {
+	void Max3() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -98,7 +98,7 @@ class CalculatorTest {
 		assert calculadora.max()==3;
 	}
 	@Test
-	void testMin1() {
+	void Min1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -106,7 +106,7 @@ class CalculatorTest {
 		assert calculadora.min()==1;
 	}
 	@Test
-	void testMin2() {
+	void Min2() {
 		calculadora.add(0);
 		calculadora.add(2);
 		calculadora.add(3);
@@ -114,7 +114,7 @@ class CalculatorTest {
 		assert calculadora.min()==0;
 	}
 	@Test
-	void testMin3() {
+	void Min3() {
 		calculadora.add(1);
 		calculadora.add(1);
 		calculadora.add(3);
@@ -123,7 +123,7 @@ class CalculatorTest {
 	}
 
 	@Test
-	void testAverage1() {
+	void Average1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(4);
@@ -131,7 +131,7 @@ class CalculatorTest {
 		assert calculadora.average()==3;
 	}
 	@Test
-	void testAverage2() {
+	void Average2() {
 		calculadora.add(0);
 		calculadora.add(0);
 		calculadora.add(0);
@@ -139,7 +139,7 @@ class CalculatorTest {
 		assert calculadora.average()==0;
 	}
 	@Test
-	void testAverage3() {
+	void Average3() {
 		calculadora.add(0);
 		calculadora.add(0);
 		calculadora.add(0);
@@ -148,7 +148,7 @@ class CalculatorTest {
 	}
 
 	@Test
-	void testStddev1() {
+	void Stddev1() {
 		calculadora.add(1);
 		calculadora.add(2);
 		calculadora.add(4);
@@ -156,7 +156,7 @@ class CalculatorTest {
 		assert calculadora.stddev()==3.3333333333333335;
 	}
 	@Test
-	void testStddev2() {
+	void Stddev2() {
 		calculadora.add(1);
 		calculadora.add(1);
 		calculadora.add(1);
@@ -164,7 +164,7 @@ class CalculatorTest {
 		assert calculadora.stddev()==0;
 	}
 	@Test
-	void testStddev3() {
+	void Stddev3() {
 		calculadora.add(0);
 		calculadora.add(0);
 		calculadora.add(0);
