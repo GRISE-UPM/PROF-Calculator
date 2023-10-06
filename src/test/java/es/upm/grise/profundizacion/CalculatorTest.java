@@ -4,13 +4,146 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Vector;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 
-	@Test
-	void test() {
-		fail();
+
+	private Calculator calc;
+	@BeforeEach
+	void calcInit() {
+		calc = new Calculator();
+		calc.numbers = new Vector<Double>();
 	}
+
+	@Test
+	@DisplayName("Checks the size of the number's vector")
+	void testAddSize() {
+		calc.add(1);
+		calc.add(2);
+		calc.add(3);
+		assertEquals(3,calc.numbers.size());
+	}
+	@Test
+	@DisplayName("Checks the content of the number's vector")
+	void testAddContent() {
+		calc.add(1);
+		calc.add(2);
+		calc.add(3);
+		assertArrayEquals(new Double[] {1.0,2.0,3.0},calc.numbers.toArray());
+	}
+	@Test
+	@DisplayName("Checks that the last number is removed")
+	void testRemove() {
+		calc.add(1);
+		calc.add(2);
+		calc.add(3);
+		calc.remove(2);
+		assertArrayEquals(new Double[] {1.0,3.0},calc.numbers.toArray());
+	}
+	@Test
+	@DisplayName("Checks that an exception is thrown if a non existent number is removed")
+	void testRemoveEmpty() {
+		assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.remove(4));
+	}
+
+	@Test
+	@DisplayName("Checks That an exception is thrown if the calculator is empty when using max")
+	void testMaxEmpty() {
+		assertThrows(Throwable.class , () -> calc.max());
+	}
+
+	@Test
+	@DisplayName("Checks max function when both numbers are the same")
+	void testMaxEquals() {
+		calc.add(1);
+		calc.add(2);
+		calc.add(2);
+		assertEquals(2,calc.max());
+	}
+	@Test
+	@DisplayName("Checks max function when both numbers are not the same")
+	void testMaxDifferent() {
+		calc.add(1);
+		calc.add(3);
+		calc.add(2);
+		assertEquals(3,calc.max());
+	}
+	@Test
+	@DisplayName("Checks max function when some numbers are negative")
+	void testMaxNegative() {
+		calc.add(1);
+		calc.add(-3);
+		calc.add(2);
+		assertEquals(2,calc.max());
+	}
+
+	@Test
+	@DisplayName("Checks That an exception is thrown if the calculator is empty when using min")
+	void testMinEmpty() {
+		assertThrows(Throwable.class , () -> calc.min());
+	}
+
+	@Test
+	@DisplayName("Checks min function when both numbers are the same")
+	void testMinEquals() {
+		calc.add(1);
+		calc.add(1);
+		calc.add(2);
+		assertEquals(1,calc.min());
+	}
+	@Test
+	@DisplayName("Checks min function when both numbers are not the same")
+	void testMinDifferent() {
+		calc.add(0);
+		calc.add(3);
+		calc.add(2);
+		assertEquals(0,calc.min());
+	}
+	@Test
+	@DisplayName("Checks min function when some numbers are negative")
+	void testMinNegative() {
+		calc.add(1);
+		calc.add(-3);
+		calc.add(2);
+		assertEquals(-3,calc.min());
+	}
+
+	@Test
+	@DisplayName("Checks that stddev gives error if less than 2 values are given")
+	void testStandardDeviationMinimum() {
+		calc.add(1);
+		assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.stddev());
+	}
+
+	@Test
+	@DisplayName("Checks that stddev gives the correct value with normal numbers")
+	void testStandardDeviation() {
+		calc.add(1);
+		calc.add(23);
+		calc.add(23);
+		calc.add(16);
+		calc.add(23);
+		calc.add(21);
+		calc.add(16);
+		assertEquals(63.285714285714,calc.stddev(),0.0001);
+	}
+
+
+	@Test
+	@DisplayName("Checks that stddev gives the correct value even with negative numbers")
+	void testStandardDeviationNegative() {
+		calc.add(1);
+		calc.add(-23);
+		calc.add(23);
+		calc.add(16);
+		calc.add(23);
+		calc.add(21);
+		calc.add(16);
+		assertEquals(282.33333333333,calc.stddev(),0.0001);
+	}
+
 
 }
