@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Class to test the Calculator class")
 class CalculatorTest {
 
 
@@ -110,6 +111,31 @@ class CalculatorTest {
 		calc.add(2);
 		assertEquals(-3,calc.min());
 	}
+
+	@Test
+	@DisplayName("Checks That an exception is thrown if the calculator is empty when using Average")
+	void testAverageEmpty() {
+		assertThrows(Throwable.class , () -> calc.average());
+	}
+
+	@Test
+	@DisplayName("Checks Average function with normal numbers")
+	void testAverage() {
+		calc.add(4);
+		calc.add(3);
+		calc.add(2);
+		assertEquals(3,calc.average());
+	}
+
+	@Test
+	@DisplayName("Checks Average function when some numbers are negative")
+	void testAverageNegative() {
+		calc.add(12);
+		calc.add(-3);
+		calc.add(6);
+		assertEquals(5,calc.average());
+	}
+
 
 	@Test
 	@DisplayName("Checks that stddev gives error if less than 2 values are given")
