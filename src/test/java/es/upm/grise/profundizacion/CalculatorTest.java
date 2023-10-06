@@ -16,12 +16,12 @@ class CalculatorTest {
 	@BeforeEach
 	void calcInit() {
 		calc = new Calculator();
-		calc.numbers = new Vector<Double>();
+		calc.numbers = new Vector<>();
 	}
 
 	@Test
 	@DisplayName("Checks the size of the number's vector")
-	void testAddSize() {
+	void addSize() {
 		calc.add(1);
 		calc.add(2);
 		calc.add(3);
@@ -29,7 +29,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks the content of the number's vector")
-	void testAddContent() {
+	void addContent() {
 		calc.add(1);
 		calc.add(2);
 		calc.add(3);
@@ -37,7 +37,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks that the last number is removed")
-	void testRemove() {
+	void remove() {
 		calc.add(1);
 		calc.add(2);
 		calc.add(3);
@@ -46,19 +46,19 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks that an exception is thrown if a non existent number is removed")
-	void testRemoveEmpty() {
+	void removeEmpty() {
 		assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.remove(4));
 	}
 
 	@Test
 	@DisplayName("Checks That an exception is thrown if the calculator is empty when using max")
-	void testMaxEmpty() {
+	void maxEmpty() {
 		assertThrows(Throwable.class , () -> calc.max());
 	}
 
 	@Test
 	@DisplayName("Checks max function when both numbers are the same")
-	void testMaxEquals() {
+	void maxEquals() {
 		calc.add(1);
 		calc.add(2);
 		calc.add(2);
@@ -66,7 +66,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks max function when both numbers are not the same")
-	void testMaxDifferent() {
+	void maxDifferent() {
 		calc.add(1);
 		calc.add(3);
 		calc.add(2);
@@ -74,7 +74,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks max function when some numbers are negative")
-	void testMaxNegative() {
+	void maxNegative() {
 		calc.add(1);
 		calc.add(-3);
 		calc.add(2);
@@ -83,13 +83,13 @@ class CalculatorTest {
 
 	@Test
 	@DisplayName("Checks That an exception is thrown if the calculator is empty when using min")
-	void testMinEmpty() {
+	void minEmpty() {
 		assertThrows(Throwable.class , () -> calc.min());
 	}
 
 	@Test
 	@DisplayName("Checks min function when both numbers are the same")
-	void testMinEquals() {
+	void minEquals() {
 		calc.add(1);
 		calc.add(1);
 		calc.add(2);
@@ -97,7 +97,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks min function when both numbers are not the same")
-	void testMinDifferent() {
+	void minDifferent() {
 		calc.add(0);
 		calc.add(3);
 		calc.add(2);
@@ -105,7 +105,7 @@ class CalculatorTest {
 	}
 	@Test
 	@DisplayName("Checks min function when some numbers are negative")
-	void testMinNegative() {
+	void minNegative() {
 		calc.add(1);
 		calc.add(-3);
 		calc.add(2);
@@ -114,13 +114,13 @@ class CalculatorTest {
 
 	@Test
 	@DisplayName("Checks That an exception is thrown if the calculator is empty when using Average")
-	void testAverageEmpty() {
+	void averageEmpty() {
 		assertThrows(Throwable.class , () -> calc.average());
 	}
 
 	@Test
 	@DisplayName("Checks Average function with normal numbers")
-	void testAverage() {
+	void average() {
 		calc.add(4);
 		calc.add(3);
 		calc.add(2);
@@ -129,7 +129,7 @@ class CalculatorTest {
 
 	@Test
 	@DisplayName("Checks Average function when some numbers are negative")
-	void testAverageNegative() {
+	void averageNegative() {
 		calc.add(12);
 		calc.add(-3);
 		calc.add(6);
@@ -139,14 +139,14 @@ class CalculatorTest {
 
 	@Test
 	@DisplayName("Checks that stddev gives error if less than 2 values are given")
-	void testStandardDeviationMinimum() {
+	void standardDeviationMinimum() {
 		calc.add(1);
 		assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.stddev());
 	}
 
 	@Test
 	@DisplayName("Checks that stddev gives the correct value with normal numbers")
-	void testStandardDeviation() {
+	void standardDeviation() {
 		calc.add(1);
 		calc.add(23);
 		calc.add(23);
@@ -160,7 +160,7 @@ class CalculatorTest {
 
 	@Test
 	@DisplayName("Checks that stddev gives the correct value even with negative numbers")
-	void testStandardDeviationNegative() {
+	void standardDeviationNegative() {
 		calc.add(1);
 		calc.add(-23);
 		calc.add(23);
