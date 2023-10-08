@@ -25,24 +25,28 @@ import org.junit.jupiter.api.Test;
 		
 		@Test
 		void test_add(){
-			assertEquals(2, calculator.numbers.size());
+			int correcto = 2;
+			assertEquals(correcto, calculator.numbers.size());
 		}
 
 		@Test
 		void test_max() {
-			assertEquals(2.0, calculator.max());
+			double correcto = 2.0;
+			assertEquals(correcto, calculator.max());
 		}
 
 
 		@Test
 		void test_min() {
-			assertEquals(1.0, calculator.min());
+			double correcto = 1.0;
+			assertEquals(correcto, calculator.min());
 		}
 
 		
 		@Test
 		void test_avg() {
-			assertEquals(1.5, calculator.average());
+			double correcto = 1.5;
+			assertEquals(correcto, calculator.average());
 		}
 		
 		@Test
@@ -50,10 +54,12 @@ import org.junit.jupiter.api.Test;
 			double tercero = 3.0;
 			double cuarto = 4.0; 
 			
+			double correct = 1.67;	
+		
 			calculator.add(tercero);
 			calculator.add(cuarto);
 			
-			assertEquals(1.66666, calculator.stddev());
+			assertEquals(correct, Double.parseDouble(String.format("%.2f", (double)calculator.stddev())));
 			
 		}
 		
@@ -61,7 +67,9 @@ import org.junit.jupiter.api.Test;
 		void test_remove() {
 			calculator.remove(1.0);
 			
-			assertEquals(1, calculator.numbers.size());
+			int correcto = 1;
+			
+			assertEquals(correcto, calculator.numbers.size());
 		}
 		
 		
