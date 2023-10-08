@@ -1,11 +1,16 @@
 package es.upm.grise.profundizacion;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import java.lang.Double;
 
 public class Calculator {
 
 	public Vector <Double> numbers;
+
+	public Calculator(){
+		this.numbers = new Vector<Double>();
+	}
 	
 	// Public methods
 	//
