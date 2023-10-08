@@ -26,27 +26,27 @@ import org.junit.jupiter.api.Test;
 		@Test
 		void test_add(){
 			int correcto = 2;
-			assertEquals(correcto, calculator.numbers.size());
+			assertEquals(correcto, calculator.numbers.size(),"the parameter size isn't 2");
 		}
 
 		@Test
 		void test_max() {
 			double correcto = 2.0;
-			assertEquals(correcto, calculator.max());
+			assertEquals(correcto, calculator.max(),"the parameter max isn't 2.0");
 		}
 
 
 		@Test
 		void test_min() {
 			double correcto = 1.0;
-			assertEquals(correcto, calculator.min());
+			assertEquals(correcto, calculator.min(),"the parameter min isn't 1.0");
 		}
 
 		
 		@Test
 		void test_avg() {
 			double correcto = 1.5;
-			assertEquals(correcto, calculator.average());
+			assertEquals(correcto, calculator.average(),"the parameter avg isn't 1.5");
 		}
 		
 		@Test
@@ -59,7 +59,7 @@ import org.junit.jupiter.api.Test;
 			calculator.add(tercero);
 			calculator.add(cuarto);
 			
-			assertEquals(correct, Double.parseDouble(String.format("%.2f", (double)calculator.stddev())));
+			assertEquals(correct, Double.parseDouble(String.format("%.2f", (double)calculator.stddev())),"the standard dev isn't 1.6");
 			
 		}
 		
@@ -69,7 +69,7 @@ import org.junit.jupiter.api.Test;
 			
 			int correcto = 1;
 			
-			assertEquals(correcto, calculator.numbers.size());
+			assertEquals(correcto, calculator.numbers.size(), "the size of the vector isn't 1");
 		}
 		
 		
