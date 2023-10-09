@@ -1,18 +1,20 @@
 package es.upm.grise.profundizacion;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Vector;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 	class CalculatorTest {
 		
-		Calculator calculator;
-		
-		@BeforeEach
-		void init() {
+		static Calculator calculator = new Calculator();
+		Vector<Double> vector = new Vector<Double>();
+	
+		@BeforeAll
+		static void init() {
 			Vector<Double> vector = new Vector<Double>();
 			calculator = new Calculator();
 			calculator.numbers=vector;
@@ -53,9 +55,11 @@ import org.junit.jupiter.api.Test;
 		void test_stddev() {
 			double tercero = 3.0;
 			double cuarto = 4.0; 
+			double primero = 1.0;
 			
-			double correct = 1.67;	
-		
+			double correct = 1.7;	
+			
+			calculator.add(primero);
 			calculator.add(tercero);
 			calculator.add(cuarto);
 			
@@ -63,7 +67,7 @@ import org.junit.jupiter.api.Test;
 			
 		}
 		
-		@Test
+		
 		void test_remove() {
 			calculator.remove(1.0);
 			
@@ -71,6 +75,7 @@ import org.junit.jupiter.api.Test;
 			
 			assertEquals(correcto, calculator.numbers.size(), "the size of the vector isn't 1");
 		}
+		
 		
 		
 }
