@@ -10,30 +10,38 @@ import org.junit.jupiter.api.Test;
 
 	class CalculatorTest {
 		
-		static Calculator calculator = new Calculator();
+		Calculator calculator = new Calculator();
 		Vector<Double> vector = new Vector<Double>();
 	
-		@BeforeAll
-		static void init() {
+		@BeforeEach
+		void init() {
 			Vector<Double> vector = new Vector<Double>();
 			calculator = new Calculator();
 			calculator.numbers=vector;
 			
 			double primero = 1.0;
 			double segundo = 2.0;
+			double tercero = 3.0;
+			double cuarto = 4.0;
+			
+			
 			calculator.add(primero);
 			calculator.add(segundo);
+			calculator.add(tercero);
+			calculator.add(cuarto);
+			
 		}
+		
 		
 		@Test
 		void test_add(){
-			int correcto = 2;
+			int correcto = 4;
 			assertEquals(correcto, calculator.numbers.size(),"the parameter size isn't 2");
 		}
 
 		@Test
 		void test_max() {
-			double correcto = 2.0;
+			double correcto = 4.0;
 			assertEquals(correcto, calculator.max(),"the parameter max isn't 2.0");
 		}
 
@@ -47,21 +55,14 @@ import org.junit.jupiter.api.Test;
 		
 		@Test
 		void test_avg() {
-			double correcto = 1.5;
+			double correcto = 2.5;
 			assertEquals(correcto, calculator.average(),"the parameter avg isn't 1.5");
 		}
 		
 		@Test
 		void test_stddev() {
-			double tercero = 3.0;
-			double cuarto = 4.0; 
-			double primero = 1.0;
 			
-			double correct = 1.7;	
-			
-			calculator.add(primero);
-			calculator.add(tercero);
-			calculator.add(cuarto);
+			double correct = 1.67;	
 			
 			assertEquals(correct, Double.parseDouble(String.format("%.2f", (double)calculator.stddev())),"the standard dev isn't 1.6");
 			
