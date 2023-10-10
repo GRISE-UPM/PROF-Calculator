@@ -5,7 +5,7 @@ import java.lang.Double;
 
 public class Calculator {
 
-	public Vector <Double> numbers;
+	public Vector <Double> numbers = new Vector()<Double>; // Inicialización del vector
 	
 	// Public methods
 	//
