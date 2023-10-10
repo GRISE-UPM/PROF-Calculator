@@ -32,7 +32,7 @@ class CalculatorTest {
 	@Test()
 	public void testAdd() {		
 		calculator.add(primerNum); 		
-		double resultado= 3.0;
+		final int resultado= 3;
         assertEquals(resultado, calculator.numbers.size(),"La lista debe contener el valor añadido");
 	}
 
@@ -40,8 +40,8 @@ class CalculatorTest {
 	@Test
 	public void testRemove() {		
 	    calculator.remove(primerNum);
-	    final double resultado= 1.0;
-	    assertEquals(resultado, calculator.numbers.size(), "El tamaño de la lista debe ser 1 después de la eliminación");
+	    final int resultado= 1;
+	    assertEquals(resultado, calculator.numbers.size(), "El tamaño de la lista debe ser 1 después de la eliminación");	    
 	    assertFalse(calculator.numbers.contains(primerNum), "El primer número no debe estar en la lista");
 	    assertTrue(calculator.numbers.contains(segundoNum), "El segundo número si debe estar en la lista");
 	}	
@@ -50,21 +50,21 @@ class CalculatorTest {
 	@Test
 	public void testMax() {	
 		final double resultado= 2.0;
-        assertEquals(resultado, calculator.max(),"Probando metodo max");
+        assertEquals(resultado, calculator.max(),"El valor maximo tiene que ser 2");
     }
 	
 	@DisplayName("Probando metodo min")
 	@Test
 	public void testMin() {	
 		final double resultado= 1.0;
-        assertEquals(resultado, calculator.min(),"Probando metodo min");
+        assertEquals(resultado, calculator.min(),"El valor minimo tiene que ser 1");
     }
 
 	@DisplayName("Probando metodo average")
 	@Test
     public void testAverage() {	
 		final double resultado= 1.5;
-        assertEquals(resultado, calculator.average(),"Probando metodo average");
+        assertEquals(resultado, calculator.average(),"La media de 1 y 2 es 1,5");
     }	
 	
 	//@Disabled
@@ -72,6 +72,6 @@ class CalculatorTest {
     @Test
     public void testStdDev() {	
 		final double resultado= 0.5;
-        assertEquals(resultado, calculator.stddev(),"Probando metodo stdDev");
+        assertEquals(resultado, calculator.stddev(),"la desviacion tipica debe ser 0,5");
     }	
 }
