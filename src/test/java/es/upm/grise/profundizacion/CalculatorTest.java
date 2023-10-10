@@ -65,29 +65,33 @@ class CalculatorTest {
 
 	@Test
 	public void testMax() {
+		double correctVal = 2.0;
 		addKnownArray();
 		double n = calc.max();
-		assertEquals(2.0, n, "Max is not 2");
+		assertEquals(correctVal, n, "Max is not 2");
 	}
 	
 	@Test
 	public void testMin() {
+		double correctVal = -2.0;
 		addKnownArray();
 		double n = calc.min();
-		assertEquals(-2.0, n, "Min is not -2");
+		assertEquals(correctVal, n, "Min is not -2");
 	}
 	
 	@Test
 	public void testAvg() {
+		double correctVal = 0.0;
 		addKnownArray();
 		double n = calc.average();
-		assertEquals(0.0, n, "Average is not 0");
+		assertEquals(correctVal, n, "Average is not 0");
 	}
 	
 	@Test
 	public void testStdDev() {
+		double correctVal = 1.4142135623731;
 		addKnownArray();
 		double n = calc.stddev();
-		assertEquals(1.4142135623731, n, "Standard deviation is not 1.41...");
+		assertEquals(correctVal, n, "Standard deviation is not 1.41...");
 	}
 }
