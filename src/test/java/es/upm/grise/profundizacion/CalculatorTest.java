@@ -3,12 +3,21 @@ package es.upm.grise.profundizacion;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Vector;
+import java.util.Random;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 
 class CalculatorTest {
 	private static Calculator calc;
+	private static Random rng;
+	
+	@BeforeAll
+	public static void resetRNG() {
+		rng = new Random();
+	}
 	
 	@BeforeEach
 	public void resetCalculator() {
@@ -27,8 +36,8 @@ class CalculatorTest {
 	
 	@Test
 	public void testAdd() {
-		double magicNumber = 5.5;
-		Vector<Double> correctVec = new Vector<Double>(1);
+		double magicNumber = rng.nextDouble();
+		Vector<Double> correctVec = new Vector<Double>();
 		correctVec.add(magicNumber);
 		
 		calc.add(magicNumber);
@@ -39,10 +48,10 @@ class CalculatorTest {
 	
 	@Test
 	public void testRemove() {
-		double[] initialVec = {2.2, 3.3, 4.4, 3.3};
-		double[] expectedVec = {2.2, 3.3, 4.4};
-		double missingN = 3.3;
-		Vector<Double> correctVec = new Vector<Double>(3);
+		double missingN = rng.nextDouble();
+		double[] initialVec = {rng.nextDouble(), rng.nextDouble(), rng.nextDouble(), missingN};
+		double[] expectedVec = Arrays.copyOfRange(initialVec, 0, initialVec.length-1);
+		Vector<Double> correctVec = new Vector<Double>(expectedVec.length);
 		for(double n : expectedVec)
 			correctVec.add(n);
 		
@@ -81,5 +90,4 @@ class CalculatorTest {
 		double n = calc.stddev();
 		assertEquals(1.4142135623731, n, "Standard deviation is not 1.41...");
 	}
-
 }
