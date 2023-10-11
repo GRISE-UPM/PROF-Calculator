@@ -3,6 +3,7 @@ package es.upm.grise.profundizacion;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Vector;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
@@ -25,34 +26,42 @@ class CalculatorTest {
 		}
 	}
 
-	@Test
-	void Add() {
-		assertArrayEquals(INITIAL_NUMBERS, calculadora.numbers.toArray(), "Error en el test Add");
+	@Nested
+	class NumberTests {
+
+		@Test
+		void Add() {
+			assertArrayEquals(INITIAL_NUMBERS, calculadora.numbers.toArray(), "Error en el test Add");
+		}
+
+		@Test
+		void Remove() {
+			calculadora.remove(4);
+			assertArrayEquals(new Double[]{1.0, 2.0, 3.0}, calculadora.numbers.toArray(), "Error en el test Remove");
+		}
 	}
 
-	@Test
-	void Remove() {
-		calculadora.remove(4);
-		assertArrayEquals(new Double[]{1.0, 2.0, 3.0}, calculadora.numbers.toArray(), "Error en el test Remove");
-	}
+	@Nested
+	class CalculationTests {
 
-	@Test
-	void Max() {
-		assertEquals(MAX_EXPECTED, calculadora.max(), DELTA, "Error en el test Max ");
-	}
+		@Test
+		void Max() {
+			assertEquals(MAX_EXPECTED, calculadora.max(), DELTA, "Error en el test Max ");
+		}
 
-	@Test
-	void Min() {
-		assertEquals(MIN_EXPECTED, calculadora.min(), DELTA, "Error en el test Min ");
-	}
+		@Test
+		void Min() {
+			assertEquals(MIN_EXPECTED, calculadora.min(), DELTA, "Error en el test Min ");
+		}
 
-	@Test
-	void Average() {
-		assertEquals(AVERAGE_EXPECTED, calculadora.average(), DELTA, "Error en el test Average ");
-	}
+		@Test
+		void Average() {
+			assertEquals(AVERAGE_EXPECTED, calculadora.average(), DELTA, "Error en el test Average ");
+		}
 
-	@Test
-	void Stddev() {
-		assertEquals(STDDEV_EXPECTED, calculadora.stddev(), DELTA, "Error en el test Stddev ");
+		@Test
+		void Stddev() {
+			assertEquals(STDDEV_EXPECTED, calculadora.stddev(), DELTA, "Error en el test Stddev ");
+		}
 	}
 }
