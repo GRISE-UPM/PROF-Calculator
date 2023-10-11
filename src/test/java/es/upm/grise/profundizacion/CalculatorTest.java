@@ -1,174 +1,58 @@
 package es.upm.grise.profundizacion;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Vector;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 
+	private static final Double[] INITIAL_NUMBERS = {1.0, 2.0, 3.0, 4.0};
+	private static final double MAX_EXPECTED = 4.0;
+	private static final double MIN_EXPECTED = 1.0;
+	private static final double AVERAGE_EXPECTED = 2.5;
+	private static final double STDDEV_EXPECTED = 1.6666666666666667;
+	private static final double DELTA = 0.001;
+
 	private Calculator calculadora;
+
 	@BeforeEach
 	void inicializar() {
-		calculadora= new Calculator();
-		calculadora.numbers= new Vector<Double>();
+		calculadora = new Calculator();
+		calculadora.numbers = new Vector<Double>();
+		for (double num : INITIAL_NUMBERS) {
+			calculadora.add(num);
+		}
 	}
-	  @Test
-	  void Remove0() {
-	  	calculadora.add(1);
-	  	calculadora.add(2);
-	  	calculadora.add(3);
-	  	calculadora.remove(4);
-	  	assertArrayEquals(new Double[] {1.0, 2.0, 3.0}, calculadora.numbers.toArray());
-	  }
+
 	@Test
-	void Remove1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
+	void Add() {
+		assertArrayEquals(INITIAL_NUMBERS, calculadora.numbers.toArray(), "Error en el test Add");
+	}
+
+	@Test
+	void Remove() {
 		calculadora.remove(4);
-		assertArrayEquals(new Double[] {1.0, 2.0, 3.0}, calculadora.numbers.toArray());
-	}
-	@Test
-	void Remove2() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.remove(1);
-		calculadora.remove(2);
-		assertArrayEquals(new Double[] {}, calculadora.numbers.toArray());
+		assertArrayEquals(new Double[]{1.0, 2.0, 3.0}, calculadora.numbers.toArray(), "Error en el test Remove");
 	}
 
 	@Test
-	void Remove3() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(1);
-		calculadora.remove(1);
-		assertArrayEquals(new Double[] {1.0, 2.0}, calculadora.numbers.toArray());
-	}
-	@Test
-	void Add1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assertArrayEquals(new Double[] {1.0,2.0,3.0,4.0},calculadora.numbers.toArray());
-	}
-	@Test
-	void Add2() {
-		calculadora.add(0);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assertArrayEquals(new Double[] {0.0,2.0,3.0,4.0},calculadora.numbers.toArray());
-	}
-	@Test
-	void Add3() {
-		calculadora.add(1);
-		calculadora.add(1);
-		calculadora.add(3);
-		calculadora.add(4);
-		assertArrayEquals(new Double[] {1.0,1.0,3.0,4.0},calculadora.numbers.toArray());
-	}
-	@Test
-	void Max1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assert calculadora.max()==4;
-	}
-	@Test
-	void Max2() {
-		calculadora.add(0);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assert calculadora.max()==4;
-	}
-	@Test
-	void Max3() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(3);
-		assert calculadora.max()==3;
-	}
-	@Test
-	void Min1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assert calculadora.min()==1;
-	}
-	@Test
-	void Min2() {
-		calculadora.add(0);
-		calculadora.add(2);
-		calculadora.add(3);
-		calculadora.add(4);
-		assert calculadora.min()==0;
-	}
-	@Test
-	void Min3() {
-		calculadora.add(1);
-		calculadora.add(1);
-		calculadora.add(3);
-		calculadora.add(4);
-		assert calculadora.min()==1;
+	void Max() {
+		assertEquals(MAX_EXPECTED, calculadora.max(), DELTA, "Error en el test Max ");
 	}
 
 	@Test
-	void Average1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(4);
-		calculadora.add(5);
-		assert calculadora.average()==3;
-	}
-	@Test
-	void Average2() {
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(0);
-		assert calculadora.average()==0;
-	}
-	@Test
-	void Average3() {
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(5);
-		assert calculadora.average()==1.25;
+	void Min() {
+		assertEquals(MIN_EXPECTED, calculadora.min(), DELTA, "Error en el test Min ");
 	}
 
 	@Test
-	void Stddev1() {
-		calculadora.add(1);
-		calculadora.add(2);
-		calculadora.add(4);
-		calculadora.add(5);
-		assert calculadora.stddev()==3.3333333333333335;
+	void Average() {
+		assertEquals(AVERAGE_EXPECTED, calculadora.average(), DELTA, "Error en el test Average ");
 	}
+
 	@Test
-	void Stddev2() {
-		calculadora.add(1);
-		calculadora.add(1);
-		calculadora.add(1);
-		calculadora.add(1);
-		assert calculadora.stddev()==0;
-	}
-	@Test
-	void Stddev3() {
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(0);
-		calculadora.add(0);
-		assert calculadora.stddev()==0;
+	void Stddev() {
+		assertEquals(STDDEV_EXPECTED, calculadora.stddev(), DELTA, "Error en el test Stddev ");
 	}
 }
