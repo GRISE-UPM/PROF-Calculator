@@ -14,37 +14,37 @@ class CalculatorTest {
 		calc = new Calculator();
 		calc.numbers = new Vector<>();
 	}
-//		@Nested
-//	// These tests check how the system reacts when doing operations on an empty calculator
-//	class EmptyTests {
-//		@Test
-//		@DisplayName("Checks That an exception is thrown if the calculator is empty when using Average")
-//		void averageEmpty() {
-//			assertThrows(Throwable.class , () -> calc.average(),"No exception was thrown with an empty calculator in average");
-//		}
-//		@Test
-//		@DisplayName("Checks That an exception is thrown if the calculator is empty when using max")
-//		void maxEmpty() {
-//			assertThrows(Throwable.class , () -> calc.max(), "No exception was thrown with an empty calculator in max");
-//		}
-//		@Test
-//		@DisplayName("Checks that an exception is thrown if a non existent number is removed")
-//		void removeEmpty() {
-//			assertThrows(Throwable.class,() -> calc.remove(4), "No exception was thrown with an empty calculator in remove");
-//		}
-//		@Test
-//		@DisplayName("Checks That an exception is thrown if the calculator is empty when using min")
-//		void minEmpty() {
-//			assertThrows(Throwable.class , () -> calc.min(),"No error was given when using min");
-//		}
-//
-//		@Test
-//		@DisplayName("Checks that stddev gives error if less than 2 values are given")
-//		void standardDeviationMinimum() {
-//			calc.add(1);
-//			assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.stddev(),"No exception was thrown when using less than 2 values");
-//		}
-//	}
+	@Nested
+    // These tests check how the system reacts when doing operations on an empty calculator
+	class EmptyTests {
+		@Test
+		@DisplayName("Checks That an exception is thrown if the calculator is empty when using Average")
+		void averageEmpty() {
+			assertThrows(Throwable.class , () -> calc.average(),"No exception was thrown with an empty calculator in average");
+		}
+		@Test
+		@DisplayName("Checks That an exception is thrown if the calculator is empty when using max")
+		void maxEmpty() {
+			assertThrows(Throwable.class , () -> calc.max(), "No exception was thrown with an empty calculator in max");
+		}
+		@Test
+		@DisplayName("Checks that an exception is thrown if a non existent number is removed")
+		void removeEmpty() {
+			assertThrows(Throwable.class,() -> calc.remove(4), "No exception was thrown with an empty calculator in remove");
+		}
+		@Test
+		@DisplayName("Checks That an exception is thrown if the calculator is empty when using min")
+		void minEmpty() {
+			assertThrows(Throwable.class , () -> calc.min(),"No error was given when using min");
+		}
+
+		@Test
+		@DisplayName("Checks that stddev gives error if less than 2 values are given")
+		void standardDeviationMinimum() {
+			calc.add(1);
+			assertThrows(ArrayIndexOutOfBoundsException.class,() -> calc.stddev(),"No exception was thrown when using less than 2 values");
+		}
+	}
 	@Nested
 	class test {
 		@BeforeEach
